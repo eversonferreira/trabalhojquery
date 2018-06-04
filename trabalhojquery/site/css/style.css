@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+ }
+
+ #topo{
+     height: 10rem;
+     width: auto;
+     background-color: #B22222;
+     display: flex;
+     justify-content: space-between;
+ }
+
+ nav {
+     height: 4rem;
+     width: auto;
+     background-color: #FA8072;
+    
+ }
+ .dropdown-menu{
+    color: #B22222;
+ }
+
+ #menu a {
+     font-size: 1.7rem;
+     color: black
+ }
+
+ #menu a:hover {
+    font-size: 1.8rem;
+    color: #B22222;
+}
+
+#sombramenu {
+     height: 2rem;
+     width: 7rem;
+     background-color: #FA8072;
+ }
+
+#promocoes{
+    height: 25rem;
+    width: auto;
+  
+}
+
+#promocoes iframe{
+    height: 100%;
+    width: 100%;
+}
+
+footer {
+    display: flex;
+	flex-wrap: wrap;
+}
+
+/*
+#form{
+
+    height: 30rem;
+    width: auto;
+    margin-left: 0.2rem;
+    background-color:#FA8072;
+    border: 2px solid #B22222;
+    border-radius: 10px;
+    
+}
+
+#form label{
+    font-size: 2rem;
+}
+#form .error {
+    background-color: brown; 
+    }
+
+#form .btn{
+    width: 6rem;
+    height: 3rem;
+    float: right;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+
+}*/
+#form iframe{
+    width: auto;
+    height: 21rem;
+    margin-left: 1rem;
+    border: 2px solid #B22222;
+    border-radius: 4px;
+    
+}
+
+#gallery{
+    height: 20rem;
+    width: auto;
+    margin-left: 1rem;
+   display: flex;
+   flex-wrap: nowrap;
+   
+}
+
+#gallery section{
+  
+   margin-left: 0.3rem;
+}
+
+#gallery img{
+    border-radius: 1em;
+  
+    
+}
+
+#gallery h2{
+    margin-left: 1rem;
+    font-size: 14px;
+}
+
+#gallery span{
+    margin-left: 2rem;
+}
+
+#buttontop{
+    border-radius: 50%;
+}
+
+

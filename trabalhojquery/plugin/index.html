@@ -1,0 +1,70 @@
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <title>Troca palavras</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    <h1>Aqui seu texto normal</h1>
+    <h2>e, i, o, u, a</h2>
+    <ul>
+        <li>e = enter</li>
+        <li>i = inis</li>
+        <li>o = omber</li>
+        <li>u = ufter</li>
+        <li>a = ais</li>
+    </ul>
+    <div id="txt">
+        <h1>aqui seu texto</h1>
+    </div>
+
+    <script>
+        (function ($) {
+            $.fn.codificadordetexto = function (options) {
+
+                let settings = $.extend({
+                    buscaTexto: null,
+                    alteraTexto: "",
+                }, options);
+                return this.each(function () {
+                    let buscarString = settings.buscaTexto;
+                    let substituir = settings.alteraTexto;
+                    $(this).html(
+                        $(this).html().replace(buscarString, substituir)
+                    );
+
+
+                });
+            };
+        }(jQuery));
+
+        $("#txt").codificadordetexto({
+            buscaTexto: "e",
+            alteraTexto: "enter",
+        });
+        $("#txt").codificadordetexto({
+            buscaTexto: "i",
+            alteraTexto: "inis",
+        });
+        $("#txt").codificadordetexto({
+            buscaTexto: "o",
+            alteraTexto: "omber",
+        });
+        $("#txt").codificadordetexto({
+            buscaTexto: "u",
+            alteraTexto: "ufter",
+        });
+        $("#txt").codificadordetexto({
+            buscaTexto: "a",
+            alteraTexto: "ais",
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

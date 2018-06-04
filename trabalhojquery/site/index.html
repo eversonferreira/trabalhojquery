@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mercearia do Batata</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <!-- Imports data picker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                format: 'dd/mm/yyyy'
+            });
+        });
+    </script>
+
+    <!-- Imports Gallery images -->
+    <script src="js/jquery.lighterbox.0.0.3.min.js"></script>
+
+    <script>
+        $(function () { // document ready
+            $(".lighterbox").lighterbox({ overlayColor: "white" });
+        });
+    </script>
+    <!-- Fim Gallery imagens-->
+
+    <!-- Imports Validação de Formulario-->
+    <script src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("form").on("submit", function (event) {
+                event.preventDefault();
+                console.log($(this).serializeArray());
+            });
+        });
+
+        $(document).ready(function () {
+            $("#form1").validate({
+                // Define as regras
+                rules: {
+                    nome: {
+                        // campoNome será obrigatório (required) e terá tamanho mínimo (minLength)
+                        required: true, minlength: 2
+                    },
+                    idade: {
+
+                        required: true
+                    },
+                    email: {
+                        // campoMensagem será obrigatório (required) 
+                        required: true
+                    }
+                },
+                // Define as mensagens de erro para cada regra
+                messages: {
+                    nome: {
+                        required: "Digite o seu nome",
+                        minLength: "O seu nome deve conter, no mínimo, 2 caracteres"
+                    },
+                    idade: {
+                        required: "Digite a sua Idade",
+                        minLength: "A sua mensagem deve conter, no mínimo, 2 caracteres"
+
+                    },
+                    email: {
+                        required: "Digite o seu e-mail para contato",
+                        email: "Digite um e-mail válido"
+                    }
+
+                }
+
+
+            });
+
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <div id="topo">
+            <h1>Merciaria do Batata</h1>
+
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-default my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        <nav>
+            <div id="menu">
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Produtos</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#pereciveisModal">Perecíveis</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#prodnaopereciveisModal">Não-perecíveis</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#cadastroModal">Cadastro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#quemsomosModal">Quem Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#contatoModal">Contato</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Modal Produtos Perecíveis-->
+            <div class="modal fade" id="pereciveisModal" tabindex="-1" role="dialog" aria-labelledby="pereciveisModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="pereciveisModalLabel">Confira Nossos produtos</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card-group">
+                                <div class="card">
+                                    <img class="card-img-top" src="gallery/perecivel1.png" alt="Paleta">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Paleta Bovina</h5>
+                                        <p class="card-text">R$ 10,50 Kg</p>
+                                        <div class="btn btn-success">
+                                            <small>Comprar</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="gallery/perecivel2.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Coxinha da Asa</h5>
+                                        <p class="card-text">R$ 2,20 Kg</p>
+                                        <div class="btn btn-success">
+                                            <small>Comprar</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="gallery/perecivel3.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Alface</h5>
+                                        <p class="card-text">R$ 0,25 Uni</p>
+                                        <div class="btn btn-success">
+                                            <small>Comprar</small>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="gallery/perecivel4.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tomate</h5>
+                                        <p class="card-text">R$ 0,55 kg</p>
+                                        <div class="btn btn-success">
+                                            <small>Comprar</small>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim Moldal Produtos Perecíveis-->
+            <!-- Modal Produtos não perecíveis-->
+            <div class="modal fade" id="prodnaopereciveisModal" tabindex="-1" role="dialog" aria-labelledby="prodnaopereciveisModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="prodnaopereciveisModalLabel">Confira Nossos produtos</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card-group">
+                                <div class="card">
+                                    <img class="card-img-top" src="gallery/naoperecivel1.png" alt="Saco Milho">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Milho Saco 5kg</h5>
+                                        <p class="card-text">R$ 3,50</p>
+                                        <div class="btn btn-success">
+                                            <small>Comprar</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="gallery/naoperecivel2.png" alt="Macarrão">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Macarrão Padre Nosso 1kg</h5>
+                                        <p class="card-text">R$ 1,50 Kg</p>
+                                        <div class="btn btn-success">
+                                            <small>Comprar</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="gallery/naoperecivel3.png" alt="Sardinha Enlatada">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sardinha Lata</h5>
+                                        <p class="card-text">R$ 0,75 Uni</p>
+                                        <div class="btn btn-success">
+                                            <small>Comprar</small>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="gallery/naoperecivel4.png" alt="Fósfora">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Caixa Fosforo</h5>
+                                        <p class="card-text">R$ 0,25 Uni</p>
+                                        <div class="btn btn-success">
+                                            <small>Comprar</small>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim Moldal Produtos nao perecíveis-->
+            <!-- Modal Cadastro-->
+            <div class="modal fade" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="cadastroModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cadastroModalLabel">Faça seu cadastro</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="#">
+                                <label>Nome:</label>
+                                <input type="text" maxlength="40" name="nome" id="nome" placeholder="Digite seu nome...">
+                                <br>
+                                <label>CPF:</label>
+                                <input type="text" name="cpf" id="cpf">
+                                <br>
+                                <label for="inputEmail">Email:</label>
+                                <input type="email" name="email" id="email">
+                                <br>
+                                <label for="inputTel">Telefone:</label>
+                                <input type="tel" name="telefone" id="telefone">
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="button" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim Moldal Cadastro-->
+            <!-- Modal Quem Somos-->
+            <div class="modal fade" id="quemsomosModal" tabindex="-1" role="dialog" aria-labelledby="quemsomosModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="quemsomosModalLabel">Quem Somos</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h1>Criado pelo Batata</h1>
+                            <br>
+                            <strong>Em 1985 o Batata resolveu trabalhar por conta própria</strong>
+                            <br>
+                            <strong>Criou seu site e começou a vender</strong>
+                            <br>
+                            <strong>Nosso maior patrimonio é você cliente.</strong>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim Moldal Quem Somos-->
+            <!-- Modal Contato -->
+            <div class="modal fade" id="contatoModal" tabindex="-1" role="dialog" aria-labelledby="contatoModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="contatoModalLabel">Fale Conosco</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h1>Mercearia do Batata</h1>
+                            <br>
+                            <strong>Rua da Liberdade - Curitiba - PR</strong>
+                            <br>
+                            <strong>merceariadobatata@mercearia.com.br</strong>
+                            <br>
+                            <strong>0800 800 800</strong>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim Moldal-->
+        </nav>
+
+        <div id="sombramenu"></div>
+    </header>
+
+    <main>
+        <section id="promocoes">
+
+            <iframe src="carousel/carousel.html" frameborder="0" allowfullscreen></iframe>
+
+
+        </section>
+    </main>
+    <footer>
+
+        <div class="item">
+            <div id="form">
+              <!--  <form id="form1" method="post" action="#">
+                    <h1>
+                        <i>Receba nossas promoções</i>
+                    </h1>
+                    <div class="row">
+                        <div class="col">
+                            <label>Nome:</label>
+                            <input type="text" id="nome" class="form-control" placeholder="Nome">
+                        </div>
+                        <div class="col">
+                            <label>Email</label>
+                            <input type="text" id="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Telefone</label>
+                            <input type="text" id="telefone" class="form-control" placeholder="(xx) 0 0000 0000">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Estado</label>
+                            <select class="form-control" required>
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Cidade</label>
+                            <select class="form-control" required>
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label>Data de Nascimento:</label>
+                        <input type="text" id="datepicker" class="form-control col-md-4">
+
+
+                    </div>
+
+                   
+                    <input type="submit" id="bt-enviar" class="btn btn-default" value="Enviar">
+                </form>-->
+                <iframe src="formulario/formulario.html" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="item">
+            <div id="gallery">
+                <section>
+                    <a href="gallery/img1full.png" class="lighterbox img-fluid">
+                        <img src="gallery/img1.png" class="img-fluid" />
+                        <h2 class="lighterbox-title">Popeye o impostor</h2>
+                        <span class="lighterbox-desc">R$ 2,00</span>
+                    </a>
+                </section>
+                <section>
+                    <a href="gallery/img2full.png" class="lighterbox img-fluid">
+                        <img src="gallery/img2.png" class="img-fluid" />
+                        <h2 class="lighterbox-title">Caverna do Dragão</h2>
+                        <span class="lighterbox-desc">R$ 2,80</span>
+                    </a>
+                </section>
+                <section>
+                    <a href="gallery/img3full.png" class="lighterbox img-fluid">
+                        <img src="gallery/img3.png" class="img-fluid" />
+                        <h2 class="lighterbox-title">Pato Donaldo</h2>
+                        <span class="lighterbox-desc">R$ 2,50</span>
+                    </a>
+                </section>
+                <section>
+                    <a href="gallery/img4full.png" class="lighterbox img-fluid">
+                        <img src="gallery/img4.png" class="img-fluid" />
+                        <h2 class="lighterbox-title">Zé Carioca</h2>
+                        <span class="lighterbox-desc">R$ 2,00</span>
+                    </a>
+                </section>
+                <section>
+                    <a href="gallery/img5full.png" class="lighterbox img-fluid">
+                        <img src="gallery/img5.png" class="img-fluid" />
+                        <h2 class="lighterbox-title">Turma da Mônica</h2>
+                        <span class="lighterbox-desc">R$ 2,20</span>
+
+                    </a>
+                    <div id="buttontop">
+                        <a href="javascript:levTop();" class="btn btn-danger">Topo</a>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+
+    </footer>
+    <script type="text/javascript">
+        function topTop() {
+            var totop = $(window).scrollTop() - 8;
+            if (totop <= 0) {
+                clearInterval(idInterval);
+            } else {
+                totop--;
+                $(window).scrollTop(totop);
+            }
+        }
+        function levTop() {
+            idInterval = setInterval('topTop();', 1);
+        }
+    </script>
+</body>
+
+</html>

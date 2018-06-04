@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://vidadeprogramador.com.br/jquery/aula1/form.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Form</title>
+<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<!--<script type="text/javascript" src="./Exemplo 1_files/jquery-2.2.2.min.js.download"></script>-->
+<script type-"text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type-"text/javascript" src="jquery.validate.min.js"></script>
+<style>
+
+/*label.error { color: rgb(0, 255, 0);}*/
+
+.error {
+        background-color: #B22222; 
+        }
+h1{
+  font-size: 1.5em;
+}
+
+label{
+  font-size: 1.5em;
+}
+
+input {
+   border-radius: 10px;
+}
+
+option {
+  border-radius: 10px;
+}
+
+#bt-enviar{
+  font-size: 2rem;
+  width: 100%;
+}
+
+body{
+  background-color: #FA8072;
+}
+
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("form").on("submit", function (event) {
+        event.preventDefault();
+        console.log($(this).serializeArray());
+    });
+});
+
+$(document).ready( function() {
+  $("#formCad").validate({
+    // Define as regras
+    rules:{
+      nome:{
+        // campoNome será obrigatório (required) e terá tamanho mínimo (minLength)
+        required: true, minlength: 2
+      },
+      email:{
+        // campoMensagem será obrigatório (required) 
+        required: true
+      },
+      telefone:{
+        required: true
+      }
+    },
+    // Define as mensagens de erro para cada regra
+    messages:{
+      nome:{
+        required: "Digite o seu nome",
+        minLength: "O seu nome deve conter, no mínimo, 2 caracteres"
+      },
+      email:{
+        required: "Digite o email",
+        email: "Digite um e-mail válido"
+      },
+      telefone:{
+        required: "Digite seu telefone",
+        telefone: "Digite telefone valido"
+      }
+      
+    }
+   
+
+  });
+  
+});
+
+
+
+</script>
+
+<script type="text/javascript">	
+		
+  $(document).ready(function () {
+  
+    $.getJSON('estados_cidades.json', function (data) {
+      var items = [];
+      var options = '<option value="">escolha um estado</option>';	
+      $.each(data, function (key, val) {
+        options += '<option value="' + val.nome + '">' + val.nome + '</option>';
+      });					
+      $("#estados").html(options);				
+      
+      $("#estados").change(function () {				
+      
+        var options_cidades = '';
+        var str = "";					
+        
+        $("#estados option:selected").each(function () {
+          str += $(this).text();
+        });
+        
+        $.each(data, function (key, val) {
+          if(val.nome == str) {							
+            $.each(val.cidades, function (key_city, val_city) {
+              options_cidades += '<option value="' + val_city + '">' + val_city + '</option>';
+            });							
+          }
+        });
+        $("#cidades").html(options_cidades);
+        
+      }).change();		
+    
+    });
+  
+  });
+  
+</script>	
+</head>
+<body>
+<h1>Receba nossas promoções</h1>
+<form id="formCad" method="post" action="#">
+<label for="nome">Nome:</label>
+<input id="nome"  name="nome" type="text"><br>
+<label for="email">e-mail:</label>
+<input id="email" name="email" type="text"><br>
+<label for="tel">Telefone</label>
+<input type="tel" name="telefone" id="telefone" placeholder="(00) 0 0000 0000"><br>
+<br>
+<!-- Estado -->
+<select id="estados">
+  <option value=""></option>
+</select>
+<select id="cidades">
+</select>
+<br>
+<br>
+<input type="submit" id="bt-enviar" value="Enviar">
+</form>
+
+
+</body></html>
